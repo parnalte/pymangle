@@ -1586,9 +1586,9 @@ PyMangleMask_genrand_range(struct PyMangleMask* self, PyObject* args)
         num_contained += 1;
     }
 
-    if (num_contained==0) {
+    if (num_contained>0) {
         PyErr_Format(PyExc_ValueError,
-                "no corners are contained within mask");
+                "Some of the corners are contained within mask");
         status=0;
         goto _genrand_range_cleanup;
     }
